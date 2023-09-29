@@ -7,18 +7,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.textclassifier.TextLinks;
+
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.security.Security;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,13 +86,11 @@ public class MainActivity extends AppCompatActivity {
         JSONObject jsonbody = new JSONObject();
         try{
             jsonbody.put("model","text-davinci-003");
-            jsonbody.put("promt",question);
+            jsonbody.put("prompt",question);
             jsonbody.put("max-tokens",4000);
             jsonbody.put("tempreture",0);
         }catch(Exception e){e.printStackTrace();}
         RequestBody body = RequestBody.create(jsonbody.toString(),JSON);
-        //SSLUtils.trustAllCertificates();
-
         Request req = new Request.Builder()
                 .url("https://api.opeanai.com/v1/completions")
                 .header("Authorization","Bearer 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")
