@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             jsonbody.put("model","text-davinci-003");
             jsonbody.put("prompt",question);
             jsonbody.put("max-tokens",4000);
-            jsonbody.put("tempreture",0);
+            jsonbody.put("temperature",0);
         }catch(Exception e){e.printStackTrace();}
         RequestBody body = RequestBody.create(jsonbody.toString(),JSON);
         Request req = new Request.Builder()
